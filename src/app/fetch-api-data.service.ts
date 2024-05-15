@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
 import {
   HttpClient,
   HttpHeaders,
@@ -8,10 +7,10 @@ import {
 /* reactive programming library for JavaScript, 
 and is used to combine multiple functions into a single function */
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://myfilx-movies-9cb7e129c91a.herokuapp.com';
+const apiUrl = 'https://myfilx-movies-9cb7e129c91a.herokuapp.com/';
 @Injectable({
   providedIn: 'root',
 })
@@ -53,11 +52,6 @@ export class FetchApiDataService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  // Non-typed response extraction
-  private extractResponseData(res: Response): any {
-    const body = res;
-    return body || {};
-  }
 
   // Making the api call for the Get One Movie endpoint.
   getOneMovie(title: string): Observable<any> {
@@ -87,7 +81,7 @@ export class FetchApiDataService {
   getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'movies/genre/' + genreName, {
+      .get(apiUrl + 'movies/genres/' + genreName, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -164,6 +158,12 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  // Non-typed response extraction
+  private extractResponseData(res: Object): any {
+    const body = res;
+    return body || {};
+  }
+
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
@@ -172,6 +172,6 @@ export class FetchApiDataService {
         `Error Status code ${error.status},` + `Error body is: ${error.error}`
       );
     }
-    return throwError('Something bad happend; please try again later.');
+    return throwError('Something bad happened; please try again later.');
   }
 }
