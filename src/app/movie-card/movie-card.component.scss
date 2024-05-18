@@ -1,0 +1,37 @@
+@use "@angular/material" as mat;
+// Target the parent container of the mat-card elements (e.g., a div)
+.movie-grids {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 10px; /* Gap between grid items */
+  padding: 20px; /* Add padding to the container */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Semi-transparent black background color */
+}
+.movie-grids mat-card {
+  flex: 1 1 auto;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent black background color for cards */
+  padding: 5px;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  color: white; /* Set text color to white */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+.movie-grids mat-card-title {
+  white-space: nowrap; /* Prevent title from wrapping */
+}
+.movie-grids mat-card img {
+  width: 100%; /* Ensure image takes up full width of its container */
+  height: 500px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the image covers its entire container */
+  border-radius: 10px; /* Add border-radius for rounded corners, adjust as needed */
+  margin-top: 20px;
+}

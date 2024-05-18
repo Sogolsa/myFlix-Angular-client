@@ -1,0 +1,7 @@
+<div *ngIf="isLoggedIn()">
+    <mat-toolbar class="navbar" role="navigation">
+        <button mat-button (click)="openMovies()">MyFlix</button>
+        <button mat-button>Profile</button>
+        <button mat-button (click)="logoutUser()">Logout</button>
+    </mat-toolbar>
+</div>

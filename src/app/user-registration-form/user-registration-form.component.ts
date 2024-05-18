@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FetchApiDataService } from '../fetch-api-data.service';
 // To close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
-import { FetchApiDataService } from '../fetch-api-data.service';
 // Display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 

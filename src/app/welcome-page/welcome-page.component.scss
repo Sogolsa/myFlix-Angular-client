@@ -1,0 +1,44 @@
+@use "@angular/material" as mat;
+
+.main-page {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  color: white;
+}
+
+.container h1 {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+.container button {
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+  width: 250px;
+  height: 50px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .container h1 {
+    font-size: 24px; /* Decrease font size for smaller screens */
+  }
+
+  .container button {
+    width: 200px; /* Adjust button width for smaller screens */
+  }
+}
