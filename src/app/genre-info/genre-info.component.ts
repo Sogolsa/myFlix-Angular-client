@@ -13,6 +13,7 @@ export class GenreInfoComponent {
    * @property Name - The name of the genre.
    * @property Description - The description of the genre.
    */
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
