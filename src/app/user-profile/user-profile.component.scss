@@ -67,10 +67,8 @@ mat-list-item .matListItemAvatar {
 }
 @media screen and (max-width: 900px) {
   .mat-card {
-    /* Add styles specific to mat-cards when screen width is 700px or less */
-    /* For example, you can adjust the width or add padding/margin */
     width: 100%;
-    margin: 10px auto; /* Center the cards and add some margin */
+    margin: 10px auto;
     height: 100%;
   }
   mat-card.user-card {
