@@ -1,45 +1,81 @@
-.user-card,
-.user-card mat-card-header,
-.edit-user-form {
-  text-align: center;
-  justify-content: center;
-  color: white;
-}
-
-// .user-card,
-// .edit-user-form {
-//   // display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   text-align: center;
-//   color: white;
-//   height: 100%;
-// }
-// .user-card mat-card-header {
-//   text-align: center;
-//   justify-content: center;
-// }
-
-h2 {
-  color: #c2185b;
-  margin-top: 20px;
-}
-.user-info {
-  color: white;
-  font-size: 16px;
-}
-.form-group {
+.profile-container {
   display: flex;
-  // flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.user-info-section,
+.edit-user-section {
+  width: 100%;
+  flex: 1;
+}
+.info-header mat-card-title {
+  justify-content: center;
+  text-align: center;
+}
+
+.user-card,
+.edit-user-form,
+.favorites {
+  text-align: center;
+  color: white;
+  align-items: center;
   justify-content: center;
 }
+
+mat-card.user-card {
+  height: 100%;
+  width: 100%;
+  min-width: 500px;
+}
+.favorites {
+  width: 100%;
+  height: 100%;
+}
+
 .actions {
   display: flex;
   justify-content: center;
 }
 
+h2 {
+  color: white;
+  margin-top: 20px;
+  justify-content: center;
+  font-weight: 500;
+}
+.user-info {
+  color: white;
+  font-size: 16px;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  width: 350px;
+}
+
 mat-list-item .matListItemAvatar {
   width: 64px;
   height: 64px;
+}
+@media screen and (max-width: 900px) {
+  .mat-card {
+    /* Add styles specific to mat-cards when screen width is 700px or less */
+    /* For example, you can adjust the width or add padding/margin */
+    width: 100%;
+    margin: 10px auto; /* Center the cards and add some margin */
+    height: 100%;
+  }
+  mat-card.user-card {
+    height: 100%;
+    width: 100%;
+    min-width: 900px;
+  }
 }
