@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class UserLoginFormComponent implements OnInit {
   // User data input
   @Input() userData = { Name: '', Password: '' };
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -20,6 +21,7 @@ export class UserLoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {
@@ -33,7 +35,7 @@ export class UserLoginFormComponent implements OnInit {
         this.router.navigate(['movies']);
       },
       (result) => {
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('User login failed', 'OK', {
           duration: 2000,
         });
       }
