@@ -1,1 +1,80 @@
-<p>user-profile works!</p>
+<!-- User information display section -->
+<mat-card class="user-card">
+    <mat-card-header>
+        <div>
+            <mat-card-title>
+                Name: {{userData.Name}}
+            </mat-card-title>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="user-info">
+            <label>Email: </label>
+            <span>{{ userData.Email }}</span>
+        </div>
+        <div class="user-info">
+            <label>Birthday: </label>
+            <span>{{ userData.Birthday | date: "longDate" }}</span>
+        </div>
+    </mat-card-content>
+</mat-card>
+<!--Form Fields for updating profile-->
+
+<mat-card class="edit-user-form">
+    <h2>Update User Info</h2>
+    <mat-card-content>
+        <form (ngSubmit)="updateUserInfo()">
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input shouldLabelFloat="true" matInput [(ngModel)]="formUserData.Name" placeholder="New Name"
+                        type="text" name="Name" />
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [(ngModel)]="formUserData.Password" placeholder="Required" type="text"
+                        name="Password" />
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="formUserData.Email" type="email" placeholder="Email" name="Email" />
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Birth Date</mat-label>
+                    <input matInput [(ngModel)]="formUserData.Birthday" type="date" placeholder="Birthday"
+                        name="Birthday" />
+                </mat-form-field>
+            </div>
+            <mat-card-actions class="actions">
+                <button mat-raised-button color="primary" type="submit">Update</button>
+                <button mat-raised-button color="primary" (click)="deleteUserAccount()">
+                    Delete User
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+
+    <div>
+        <h2>Favorite Movies:</h2>
+        <div *ngIf="FavoriteMovies.length === 0" class="movie-cards">
+            <p>No favorite movies found!</p>
+        </div>
+        <mat-list>
+            <mat-list-item *ngFor="let movie of FavoriteMovies">
+                <img matListItemAvatar src="{{movie.ImagePath}}" alt="{{movie.Title}}" />
+                <div matListItemTitle>{{movie.Title}}</div>
+                <div matListItemLine>{{movie.Director.Name}}</div>
+                <button mat-icon-button color="warn" (click)="deleteFavorite(movie)" matTooltip="Delete from favorites">
+                    <mat-icon>remove_circle</mat-icon>
+                </button>
+
+            </mat-list-item>
+        </mat-list>
+    </div>
+</mat-card>

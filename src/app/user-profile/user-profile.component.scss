@@ -1,0 +1,45 @@
+.user-card,
+.user-card mat-card-header,
+.edit-user-form {
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+
+// .user-card,
+// .edit-user-form {
+//   // display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   text-align: center;
+//   color: white;
+//   height: 100%;
+// }
+// .user-card mat-card-header {
+//   text-align: center;
+//   justify-content: center;
+// }
+
+h2 {
+  color: #c2185b;
+  margin-top: 20px;
+}
+.user-info {
+  color: white;
+  font-size: 16px;
+}
+.form-group {
+  display: flex;
+  // flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+mat-list-item .matListItemAvatar {
+  width: 64px;
+  height: 64px;
+}
