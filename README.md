@@ -1,6 +1,23 @@
 # MyFlixAngularClient
 
+the client-side for an application called myFlix based on its existing server-side code (REST API and database)
+
+### Key Features
+
+- Welcome View: Users will be able to log in or register an account.
+- Authentication: Authenticated users can view all the movies.
+- Director and Genre Detail Dialogs
+- Profile View with user information
+- Users are able to add and remove favorite movies
+
+## Technologies Used:
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+
+- Latest version of Node.js and npm package
+- Angular
+- Angular Material: A UI component library for Angular applications.
+- RxJS: A library for reactive programming using Observables.
 
 ## Development server
 
