@@ -9,7 +9,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class GenreInfoComponent {
   /**
    * Constructor for the GenreInfoComponent.
-   * @param data - The data of the genre to be displayed. Injected via Angular's dependency injection.
+   * @param dialogRef - Angular Material dialog reference to the dialog opened by GenreInfoComponent
+   * @param data -  Data injected to the dialog containing director information
    * @property Name - The name of the genre.
    * @property Description - The description of the genre.
    */

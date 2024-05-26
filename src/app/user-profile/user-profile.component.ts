@@ -5,8 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
 
-import { MovieCardComponent } from '../movie-card/movie-card.component';
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -33,16 +31,25 @@ export class UserProfileComponent implements OnInit {
     FavoriteMovies: [],
   };
 
+  /**
+   * Creates an instance of UserProfileComponent.
+   * @param fetchApiData - Service to fetch API data.
+   * @param snackBar - Angular Material snackbar service, to show messages.
+   * @param router - Angular Router service, to navigate to routes.
+   */
   constructor(
     private fetchApiData: FetchApiDataService,
-    public dialog: MatDialog,
     public snackBar: MatSnackBar,
     public router: Router
   ) {}
+
   ngOnInit(): void {
     this.getProfile();
   }
 
+  /**
+   * Gets user's information and list of favorite movies to display in  profile.
+   */
   getProfile(): void {
     this.fetchApiData.getUser().subscribe((result: any) => {
       this.user = result;
@@ -58,6 +65,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Updates user data
+   */
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.formUserData).subscribe(
       (result) => {
@@ -81,6 +91,9 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
+  /*
+   * Deletes user account
+   */
   deleteUserAccount(): void {
     if (confirm('Do you want to delete your account permanently?')) {
       this.router.navigate(['welcome']).then(() => {
@@ -95,6 +108,10 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  /**
+   * Deletes user's favorite movie from the list
+   * @param id - the movie id to be removed form the user's favorite list
+   */
   deleteFavorite(id: any): void {
     console.log(id);
     this.user = this.fetchApiData.getUser();
